@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 
 const GallerySection = () => {
   const ref = useRef(null)
@@ -63,15 +64,21 @@ const GallerySection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
-              <motion.img
+              <motion.div
                 key={activeImage}
-                src={images[activeImage].src}
-                alt={images[activeImage].alt}
-                className="w-full h-full object-cover"
                 initial={{ opacity: 0, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
-              />
+                className="relative w-full h-full"
+              >
+                <Image
+                  src={images[activeImage].src}
+                  alt={images[activeImage].alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </motion.div>
               
               {/* Glow effect */}
               <motion.div
@@ -90,7 +97,7 @@ const GallerySection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <div className="text-center">
-                <div className="text-2xl font-bold text-apple-display">6.1"</div>
+                <div className="text-2xl font-bold text-apple-display">6.1&quot;</div>
                 <div className="text-sm text-gray-600 text-apple-caption">Super Retina XDR</div>
               </div>
             </motion.div>
@@ -128,11 +135,13 @@ const GallerySection = () => {
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
                 >
-                  <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-gray-100 to-gray-200">
-                    <img
+                  <div className="aspect-square rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-gray-100 to-gray-200 relative">
+                    <Image
                       src={image.src}
                       alt={image.alt}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   </div>
                   <div className="text-left">
@@ -172,7 +181,7 @@ const GallerySection = () => {
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <div className="text-gray-600 text-apple-caption">Display</div>
-                  <div className="font-medium">6.1" Super Retina XDR</div>
+                  <div className="font-medium">6.1&quot; Super Retina XDR</div>
                 </div>
                 <div>
                   <div className="text-gray-600 text-apple-caption">Chip</div>

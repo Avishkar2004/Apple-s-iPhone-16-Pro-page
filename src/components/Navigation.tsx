@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, ShoppingBag, Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
