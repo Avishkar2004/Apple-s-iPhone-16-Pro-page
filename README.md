@@ -30,7 +30,7 @@ A modern, responsive website that replicates Apple's iPhone 16 Pro product page 
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Avishkar2004/Apple-s-iPhone-16-Pro-page
    cd apple-iphone-clone
    ```
 
@@ -161,10 +161,7 @@ transition={{ duration: 0.8, delay: 0.2 }}
 
 ### Content
 Update text content in component files:
-```tsx
-// Example: Change hero title
-<h1>Your Product Name</h1>
-```
+
 
 ## 📄 License
 
